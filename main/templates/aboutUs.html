@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+</head>
+<body>
+    {% include "partial/header.html" %}
+
+    <main>
+        <div class="block">
+            <span class="title">About us</span>
+            <hr class="line">
+            <span class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia porro, perspiciatis cupiditate dolore expedita perferendis enim veritatis soluta dolorum optio, pariatur doloremque! Doloremque nobis optio culpa illo quas dolor provident?</span>
+        </div>
+    </main>
+
+    {% include "partial/footer.html" %}
+
+<script src="{% static 'scripts/main.js' %}"></script>
+</body>
+</html>

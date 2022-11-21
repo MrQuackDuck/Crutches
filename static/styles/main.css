@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #F2F2F2;
+    font-family: Arial;
+    overflow-x: hidden;
+}
+
+@font-face {
+    font-family: ZillaSlab;
+    src: url("../fonts/ZillaSlab-Regular.ttf");
+}
+
+@font-face {
+    font-family: Varela;
+    src: url("../fonts/Varela.ttf");
+}
+
+.header__wrapper {
+    height: 138px;
+    background-color: #264067;
+    padding: 0 20vw;
+}
+
+.header {
+    display: flex;
+    max-width: 1920px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.logo__wrapper {
+    line-height: 138px;
+}
+
+.logo {
+    color: #264067;
+    background-color: #FFFFFF;
+    font-family: ZillaSlab;
+    text-decoration: none;
+    font-size: 66px;
+}
+
+menu {
+    line-height: 138px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+menu a {
+    color: #FFFFFF;
+    font-size: 30px;
+    margin-left: 23px;
+    display: inline-block;
+    max-height: 138px;
+    text-decoration: none;
+    font-family: Varela;
+    padding: 0px 2px;
+}
+
+menu a:hover {
+    background-color: #1f3454;
+    transition: .2s;
+}
+
+menu .active {
+    text-decoration: underline;
+}
+
+
+main {
+    padding: 0 246px;
+    max-width: 1920px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main .block {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 44px;
+    margin: 20px auto;
+    max-width: 1920px;
+    background-color: #FFFFFF;
+}
+
+main .block .title {
+    font-family: Arial;
+    font-size: 50px;
+}
+
+main .block .line {
+    width: 30%;
+    height: 4px;
+    border: none;
+    background-color: #747474;
+}
+
+main .block .text {
+    font-family: Arial;
+    font-size: 32px;
+    margin-top: 28px;
+    display: inline-block;
+}
+
+main .title {
+    font-size: 54px;
+    text-align: center;
+    font-family: Arial;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+main .title-line {
+    width: 50%;
+    height: 4px;
+    border: none;
+    display: inline-block;
+    background-color: #747474;
+    margin: 0 auto;
+    max-width: 1920px;
+}
+
+
+main .crutches {
+    max-width: 1920px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 60px auto;
+    margin-bottom: 10px;
+    gap: 20px;
+    justify-content: center;
+}
+
+main .crutch {
+    width: 440px;
+    height: 750px;
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main .crutch .text-section {
+    padding: 38px;
+    display: flex;
+    flex-direction: column;
+}
+
+main .crutch .image__wrapper {
+    max-width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+}
+
+main .crutch img {
+    max-width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    max-height: 450px;
+    object-fit: cover;
+}
+
+main .crutch .title {
+    font-size: 41px;
+    text-align: left !important;
+    margin: unset !important;
+}
+
+main .crutch .date {
+    font-size: 20px;
+    color: #A4A4A4;
+}
+
+main .crutch .description {
+    font-size: 16px;
+}
+
+main .crutch .price {
+    font-size: 26px;
+}
+
+main .crutch .buy {
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: #264067;
+    font-size: 28px;
+    padding: 6px;
+    border-radius: 4px;
+}
+
+main .crutch .buy:hover {
+    transition: .2s;
+    background-color: #182a45;
+}
+
+main .show-more {
+    text-align: center;
+    display: inline-block;
+    font-size: 28px;
+    background-color: #264067;
+    max-width: 240px;
+    text-decoration: none;
+    color: #FFFFFF;
+    border-radius: 4px;
+    margin: 0 auto;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+main .show-more:hover {
+    transition: .2s;
+    background-color: #182a45;
+}
+
+.footer__wrapper {
+    width: 100%;
+    height: 128px;
+    margin-top: 80px;
+    background-color: #264067;
+}
+
+.footer {
+    line-height: 128px;
+}
+
+.footer .copyright {
+    font-family: Varela;
+    text-align: center;
+    display: block;
+    color: #FFFFFF;
+    font-size: 36px;
+}
+
+@media screen and (max-width: 1600px) {
+    .logo {
+        font-size: 40px;
+    }
+
+    menu a {
+        font-size: 20px;
+    }
+
+    main {
+        padding: 0 5vw;
+    }
+
+    .footer__wrapper {
+        height: 50px !important;
+    }
+
+    .footer {
+        line-height: 50px;
+    }
+
+    .copyright {
+        font-size: 14px !important;
+    }
+}

@@ -1,0 +1,167 @@
+main {
+    flex-direction: row;
+}
+
+main .block {
+    margin: 10px;
+    padding: 0px;
+}
+
+main .tabs {
+    flex-grow: 2;
+}
+
+main .action-buttons {
+    display: flex;
+    flex-direction: column;
+    padding: 38px;
+    min-width: 300px;
+    gap: 10px;
+}
+
+main .action-buttons .action-button {
+    display: block;
+    background-color: #333333;
+    color: #898989;
+    padding: 10px 0px;
+    border-radius: 4px;
+    text-align: center;
+    width: 100%;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+main .action-buttons .action-button:hover {
+    background-color: #454545;
+    color: #a8a8a8;
+    transition: .2s;
+}
+
+main .action-buttons .active {
+    background-color: #264067;
+    color: #FFFFFF;
+}
+
+main .action-buttons .active:hover {
+    background-color: #1f3454;
+    color: #FFFFFF;
+}
+
+.tab {
+    display: none;
+}
+
+.tab-active {
+    display: block;
+}
+
+table {
+    width: 100%;
+}
+
+table thead {
+    background-color: #264067;
+    color: #FFFFFF;
+}
+
+table thead th {
+    padding: 20px;
+}
+
+table, th, td {
+    border: 2px solid #1C2F4B;
+    border-collapse: collapse;
+}
+
+table tr th {
+    padding: 20px;
+}
+
+.button {
+    background-color: #264067;
+    border-radius: 4px;
+    padding: 8px;
+    display: inline-block;
+    color: #FFFFFF;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #1d3251;
+    transition: .2s;
+}
+
+.edit {
+    background-color: #B75E38;
+}
+
+.edit:hover {
+    background-color: #9c4f2f;
+}
+
+.delete {
+    background-color: #932626;
+}
+
+.delete:hover {
+    background-color: #741e1e;
+}
+
+.add-new {
+    padding: 44px;
+}
+
+.add-new form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 22px;
+}
+
+.add-new form input[type="text"] {
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    font-size: 22px;
+}
+
+.add-new form textarea {
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    font-size: 22px;
+    resize: vertical;
+}
+
+.add-new form input[type="submit"] {
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    background-color: #264067;
+    color: white;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.add-new form input[type="submit"]:hover {
+    background-color: #1f3454;
+    transition: .2s;
+}
+
+.other {
+    padding: 10px 20px;
+}
+
+.other .logout {
+    background-color: #932626 !important;
+}
+
+.other .logout:hover {
+    background-color: #5d1818 !important;
+    transition: .2s !important;
+}

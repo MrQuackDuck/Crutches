@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin panel</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/admin.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.png' %}">
+</head>
+<body>
+    {% include "partial/header.html" %}
+
+    <main>
+        <div class="block tabs">
+            <div data-tab-content class="tab all-crutches tab-active">
+                
+                <table>
+                    <thead>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Publication Date</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </thead>
+                    {% for crutch in crutches %}
+                    <tr>
+                        <th>{{ crutch.id }}</th>
+                        <th>{{ crutch.name }}</th>
+                        <th>{{ crutch.datePublished }}</th>
+                        <th>{{ crutch.price }}$</th>
+                        <th>
+                            <a class="button view" href="/crutch/{{ crutch.id }}">View</a> 
+                            <a class="button edit" href="/edit/{{ crutch.id }}">Edit</a>
+                            <a class="button delete" href="/delete/{{ crutch.id }}">Delete</a>
+                        </th>
+                    </tr>         
+                    {% endfor %}
+                </table>
+
+            </div>
+
+            <div data-tab-content class="tab add-new">
+                <form method="post" action="/createCrutch" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input name="name" type="text" placeholder="Name">
+                    <input name="price" type="text" placeholder="Price">
+                    <textarea name="description" cols="30" rows="10" placeholder="Description here..."></textarea>
+                    <input name="image" type="file" accept="image/*">
+                    <input type="submit" value="Add">
+                </form>
+            </div>
+
+            <div data-tab-content class="tab other">
+                <a href="/logout" class="button logout">Log out</a>
+            </div>
+        </div>
+
+        <div class="block action-buttons">
+            <span data-tab-target=".all-crutches" class="action-button active">All crutches</span>
+            <span data-tab-target=".add-new" class="action-button">Add new</span>
+            <span data-tab-target=".other" class="action-button">Other</span>
+        </div>
+    </main>
+
+    {% include "partial/footer.html" %}
+
+<script src="{% static 'scripts/main.js' %}"></script>
+<script src="{% static 'scripts/admin.js' %}"></script>
+</body>
+</html>

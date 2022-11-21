@@ -1,0 +1,47 @@
+
+
+main .block {
+    width: 100%;
+}
+
+.main-info {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+.main-info img {
+    max-height: 300px;
+}
+
+.main-info .info {
+    font-size: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-info .info div {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-info .buy {
+    background-color: #264067;
+    text-align: center;
+    padding: 10px 0px;
+    border-radius: 4px;
+    text-decoration: 0px;
+    color: white;
+}
+
+.main-info .buy:hover {
+    background-color: #182a45;
+    transition: .2;
+}
+
+.description-title {
+    text-align: center;
+    display: block;
+    font-size: 44px;
+}

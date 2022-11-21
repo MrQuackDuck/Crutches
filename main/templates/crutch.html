@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crutch</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/crutch.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.png' %}">
+</head>
+<body>
+    {% include "partial/header.html" %}
+
+    <main>
+        <div class="block">
+            <span class="title">{{ crutch.name }}</span>
+            <hr class="line">
+            <div class="main-info">
+                <img src="{% get_media_prefix %}{{ crutch.imageField }}" alt="crutch">
+                <div class="info">
+                    <div>
+                        <span class="price"><b>Date published</b>: {{ crutch.datePublished }}</span><br>
+                        <span class="price"><b>Price</b>: {{ crutch.price }}$ | {{ crutch.uahPrice }}₴</span>
+                    </div>
+                    <a class="buy" href="#">Buy</a>
+                </div>
+            </div>
+            <span class="description-title">Description</span>
+            <hr class="description-line">
+            <span class="text">{{ crutch.description }}</span>
+        </div>
+    </main>
+
+    {% include "partial/footer.html" %}
+
+<script src="{% static 'scripts/main.js' %}"></script>
+</body>
+</html>

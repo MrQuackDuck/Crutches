@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit crutch</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/edit.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.png' %}">
+</head>
+<body>
+    {% include "partial/header.html" %}
+
+    <main>
+        <div class="block">
+            <span class="title">Edit crutch</span>
+            <hr class="line">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input name="name" type="text" placeholder="Name" value="{{ crutch.name }}">
+                <input name="price" type="text" placeholder="Price" value="{{ crutch.price }}">
+                <textarea name="description" cols="30" rows="10" placeholder="Description here...">{{ crutch.description }}</textarea>
+                <input name="image" type="file" accept="image/*">
+                <input type="submit" value="Done">
+            </form>
+        </div>
+    </main>
+
+    {% include "partial/footer.html" %}
+
+<script src="scripts/aboutUs.js"></script>
+</body>
+</html>

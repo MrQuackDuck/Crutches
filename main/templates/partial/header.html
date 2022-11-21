@@ -1,0 +1,18 @@
+<header class="header__wrapper">
+    <div class="header">
+        <div class="logo__wrapper">
+            <a href="/" class="logo">Crutches?</a>
+        </div>
+
+        <menu>
+            <a href="/">Home</a>
+            <a href="aboutUs">About Us</a>
+            <a href="allCrutches">Crutches</a>
+            {% if user.is_authenticated %}
+                <a href="adminPanel">Admin</a>
+            {% else %}
+                <a href="adminPanel">Login</a>
+            {% endif %}
+        </menu>
+    </div>
+</header>

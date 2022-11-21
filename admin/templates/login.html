@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/login.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.png' %}">
+</head>
+<body>
+    <header class="header__wrapper">
+        <div class="header">
+            <div class="logo__wrapper">
+                <a href="/" class="logo">Crutches?</a>
+            </div>
+
+            <menu>
+                <a href="/">Home</a>
+                <a href="#">About Us</a>
+                <a href="allCrutches.html">Crutches</a>
+            </menu>
+        </div>
+    </header>
+
+    <main>
+        <div class="block">
+            <span class="title">Authorization</span>
+            <hr class="line">
+
+            <form method="POST" action="authorize">
+                {% csrf_token %}    
+                {{ form }}
+                {% comment %} <input type="text" placeholder="Login">
+                <input type="text" placeholder="Password"> {% endcomment %}
+                <input type="submit" value="Login">
+                
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer__wrapper">
+        <div class="footer">
+            <span class="copyright">All right reserved. Copyright 2022 ©</span>
+        </div>
+    </footer>
+
+<script src="{% static 'scripts/main.js' %}"></script>
+</body>
+</html>

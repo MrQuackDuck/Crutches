@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All crutches</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/allCrutches.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.png' %}">
+</head>
+<body>
+    {% include "partial/header.html" %}
+
+    <main>
+        <span class="title">All crutches</span>
+        <hr class="title-line">
+
+        <form action="search" method="post" class="search-bar">
+            {% csrf_token %}
+            <input name="searchString" type="text" placeholder="Enter your request">
+            <input type="submit" value="🔎">
+        </form>
+
+        <div class="crutches">
+            {% for crutch in crutches %}
+            <div class="crutch">
+                <a href="crutch/{{ crutch.id }}" class="image__wrapper"><img src="{% get_media_prefix %}{{ crutch.imageField }}" alt="crutch"></a>
+                <div class="text-section">
+                    <span class="title">{{ crutch.name }}</span>
+                    <span class="date">{{ crutch.datePublished }}</span>
+                    <span class="description">{{ crutch.description }}</span>
+                    <span class="price">Price: {{ crutch.price }}$ | {{ crutch.uahPrice }}₴</span>
+                    <a href="crutch/{{ crutch.id }}" class="buy">Buy</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    {% include "partial/footer.html" %}
+
+<script src="{% static 'scripts/main.js' %}"></script>
+</body>
+</html>
