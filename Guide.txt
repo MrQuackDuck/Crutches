@@ -1,0 +1,4 @@
+Ubuntu: 
+    - sudo docker build --tag python-django .
+    - sudo docker run --publish 8000:8000 python-django
+    - Go to 127.0.0.1:8000
