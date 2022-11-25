@@ -8,9 +8,7 @@ import requests
 def index(request):
     latestCrutches = Crutch.objects.all().order_by('-id')[:3]
 
-    moneyExchangeApiUrl = 'https://api.exchangerate.host/convert?from=USD&to=UAH'
-    response = requests.get(moneyExchangeApiUrl)
-    currentUahRate = json.loads(response.text)["info"]["rate"]
+    currentUahRate = getCurrentMoneyExchangeRate()
 
     for crutch in latestCrutches:
         crutch.uahPrice = round(int(crutch.price) * currentUahRate)
@@ -28,9 +26,7 @@ def aboutUs(request):
 def allCrutches(request):
     allCrutches = Crutch.objects.all()
 
-    moneyExchangeApiUrl = 'https://api.exchangerate.host/convert?from=USD&to=UAH'
-    response = requests.get(moneyExchangeApiUrl)
-    currentUahRate = json.loads(response.text)["info"]["rate"]
+    currentUahRate = getCurrentMoneyExchangeRate()
 
     for crutch in allCrutches:
         crutch.uahPrice = round(int(crutch.price) * currentUahRate)
@@ -46,18 +42,25 @@ def search(request):
     if request.method == "POST":
         searchString = request.POST.get("searchString")
 
-        result = Crutch.objects.filter(name__iexact=searchString)
+        result = Crutch.objects.filter(name__in=searchString)
         print(result)
 
         data = { "crutches": result }
         return render(request, "allCrutches.html", context=data)
 
 def crutch(request, id):
-    moneyExchangeApiUrl = 'https://api.exchangerate.host/convert?from=USD&to=UAH'
-    response = requests.get(moneyExchangeApiUrl)
-    currentUahRate = json.loads(response.text)["info"]["rate"]
+    currentUahRate = getCurrentMoneyExchangeRate()
 
     crutch = Crutch.objects.get(id=id)
     crutch.uahPrice = round(int(crutch.price) * currentUahRate)
     data = { "crutch": crutch }
     return render(request, "crutch.html", context=data)
+
+def getCurrentMoneyExchangeRate():
+    try:
+        moneyExchangeApiUrl = 'https://api.exchangerate.host/convert?from=USD&to=UAH'
+        response = requests.get(moneyExchangeApiUrl)
+        currentUahRate = json.loads(response.text)["info"]["rate"]
+    except:
+        currentUahRate = 40
+    return currentUahRate
